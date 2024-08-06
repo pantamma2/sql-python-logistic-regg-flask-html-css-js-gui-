@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        :root {
+            --bg-color: #6765e7;
+            --container-bg-color: #a5ec61;
+            --title-color: #f83434;
+            --text-color: #031c36;
+            --box-shadow-color: rgba(210, 38, 38, 0.1);
+            --image-shadow-color: rgba(228, 63, 63, 0.2);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--container-bg-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px var(--box-shadow-color);
+        }
+
+        h1 {
+            color: var(--title-color);
+            text-align: center;
+        }
+
+        .prediction {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .prediction p {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .feature-importance {
+            text-align: center;
+        }
+
+        .feature-importance img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px var(--image-shadow-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        
+        <div class="prediction">
+            <p>Prediction: {{ prediction }}</p>
+        </div>
+        
+        <div class="feature-importance">
+            <h2>Feature Importance</h2>
+            <img src="{{ url_for('static', filename='feature_importance.png') }}" alt="Feature Importance Chart">
+        </div>
+    </div>
+</body>
+</html>
